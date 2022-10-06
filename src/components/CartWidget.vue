@@ -5,6 +5,9 @@ import { useCartItems } from "../stores/cartItems";
 import CartItem from "./CartItem.vue";
 
 const cartStore = useCartItems();
+const updateCount = (item, quantity) => {
+  cartStore.updateCount(item, quantity);
+};
 
 // data
 const active = ref(false);
@@ -25,16 +28,20 @@ const active = ref(false);
             :key="name"
             :product="items[0]"
             :count="cartStore.groupItemByName(name)"
-            @updateCount=""
-            @clear=""
+            @updateCount="updateCount(items[0], $event)"
+            @clear="cartStore.deleteItems(name)"
           />
         </ul>
         <div class="flex justify-end text-2xl mb-5">
-          Total: <strong>$40</strong>
+          Total: <strong>${{ cartStore.getTotalMoney }}</strong>
         </div>
         <div class="flex justify-end">
-          <AppButton class="secondary mr-2">Clear Cart</AppButton>
-          <AppButton class="primary">Checkout</AppButton>
+          <AppButton class="secondary mr-2" @click="cartStore.$reset"
+            >Clear Cart</AppButton
+          >
+          <AppButton class="primary" @click="cartStore.checkout"
+            >Checkout</AppButton
+          >
         </div>
       </div>
       <!-- Uncomment and use condition to show when cart is empty -->

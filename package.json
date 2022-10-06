@@ -11,8 +11,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@vueuse/core": "^9.3.0",
     "axios": "^1.0.0",
+    "coẻ": "link:@vueuse/coẻ",
     "lodash": "^4.17.21",
+    "lodash.clonedeep": "^4.5.0",
     "pinia": "^2.0.22",
     "vue": "^3.2.16"
   },

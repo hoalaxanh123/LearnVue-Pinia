@@ -8,7 +8,7 @@ export const useShopItems = defineStore("shopItems", () => {
 
   const fetchItems = () => {
     loading.value = true;
-    fetch("http://localhost:5000/items")
+    fetch("http://127.0.0.1:5000/items")
       .then((sm) => {
         const data = sm.json();
         return data;
